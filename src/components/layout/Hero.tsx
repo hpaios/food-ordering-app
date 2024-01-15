@@ -3,7 +3,7 @@ import ArrowRight from '../icons/ArrowRight'
 
 const Hero = () => {
   return(
-    <section className='hero'>
+    <section className='hero mt-8'>
       <div className='py-8'>
         <h1 className='text-4xl font-semibold leading-12'>
           Everything<br/>
