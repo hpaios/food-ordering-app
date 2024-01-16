@@ -22,3 +22,12 @@ button {
 button[type='submit'], .submit {
   @apply border-0 bg-primary text-white;
 }
+
+input[type='email']:disabled,
+input[type='text']:disabled,
+input[type='password']:disabled {
+  @apply bg-gray-300 cursor-not-allowed;
+}
+button[type='submit']:disabled, .submit:disabled {
+  @apply bg-red-400 cursor-not-allowed;
+}
