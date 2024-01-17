@@ -2,7 +2,7 @@
 "use client"
 import Image from 'next/image';
 import Link from 'next/link'
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 
 const RegisterPage = () => {
 
@@ -12,7 +12,7 @@ const RegisterPage = () => {
   const [userCreated, setUserCreated] = useState(false);
   const [error, setError] = useState(false);
 
-  const handleFormSubmit = async (e: HTMLFormElement) => {
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setCreatingUser(true);
     setError(false);

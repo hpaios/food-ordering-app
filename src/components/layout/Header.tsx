@@ -21,7 +21,7 @@ export default function Header() {
     <nav className='flex items-center gap-4 text-gray-500 font-semibold'>
       {status === 'authenticated' && (
          <button
-          onClick={() => signOut()}
+          onClick={() => signOut({callbackUrl: '/login'})}
           className='bg-primary text-white rounded-full px-8 py-2 border-none'>
             Logout
           </button>

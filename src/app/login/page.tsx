@@ -1,7 +1,7 @@
 "use client"
 import { signIn } from 'next-auth/react'
 import Image from 'next/image';
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 
 const LoginPage = () => {
 
@@ -9,11 +9,11 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [loginInProgress, setLoginInProgress] = useState(false);
 
-  const handleFormSubmit = async (e: HTMLFormElement) => {
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoginInProgress(true);
     
-    await signIn('credentials', {email, password});
+    await signIn('credentials', {email, password, callbackUrl: '/'});
     setLoginInProgress(false);
   }
   
