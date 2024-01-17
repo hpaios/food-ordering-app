@@ -17,20 +17,20 @@ const RegisterPage = () => {
     setCreatingUser(true);
     setError(false);
     setUserCreated(false);
-   const response = await fetch('/api/register',
-   {
-      method: 'POST',
-      body: JSON.stringify({email, password}),
-      headers: {'Content-Type': 'application/json'}
-    });
+    const response = await fetch('/api/register',
+    {
+        method: 'POST',
+        body: JSON.stringify({email, password}),
+        headers: {'Content-Type': 'application/json'}
+      });
 
-   if(response.ok) {
-    setUserCreated(true);
-   } else {
-    setError(true);
-   }
+      if(response.ok) {
+        setUserCreated(true);
+      } else {
+        setError(true);
+      }
 
-   setCreatingUser(false);
+    setCreatingUser(false);
   }
 
   return(
