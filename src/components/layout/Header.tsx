@@ -6,7 +6,10 @@ export default function Header() {
 
   const session = useSession();
   const { status } = session;
-  console.log(session);
+
+  const userData = session?.data?.user;
+  const userName = userData?.name || userData?.email
+
   return (
     <header className='flex items-center justify-between'>
     <nav className='flex items-center gap-8 text-gray-500 font-semibold'>
@@ -20,11 +23,16 @@ export default function Header() {
     </nav>
     <nav className='flex items-center gap-4 text-gray-500 font-semibold'>
       {status === 'authenticated' && (
-         <button
+        <>
+          <Link href={'/profile'} className='whitespace-nowrap'>
+            Hello, {userName}
+          </Link>
+          <button
           onClick={() => signOut({callbackUrl: '/login'})}
           className='bg-primary text-white rounded-full px-8 py-2 border-none'>
             Logout
           </button>
+        </>
       )}
       {status === 'unauthenticated' && (
         <>

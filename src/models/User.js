@@ -12,7 +12,9 @@ const UserSchema = new Schema({
         return false
       }
     }
-  }
+  },
+  name: {type: String},
+  image: {type: String}
 }, {timestamps: true});
 
 // TODO: fix bcrypt

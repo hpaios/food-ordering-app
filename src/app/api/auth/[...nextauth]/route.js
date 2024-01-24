@@ -5,7 +5,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import { MongoDBAdapter } from "@auth/mongodb-adapter"
 import clientPromise from "@/libs/mongoConnect"
 
-const handler = NextAuth({
+export const authOptions =  {
   secret: process.env.SECRET_KEY || 'dgzdjv;ruv56jhgsdug',
   providers: [
     CredentialsProvider({
@@ -30,6 +30,8 @@ const handler = NextAuth({
       }
     })
   ]
-})
+};
+
+const handler = NextAuth(authOptions)
 
 export { handler as GET, handler as POST }
